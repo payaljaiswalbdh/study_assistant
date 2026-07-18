@@ -1,6 +1,8 @@
 # 🎓 Study Assistant
 
-An AI-powered study tool that transforms your notes into interactive flashcards and quizzes. Built with React + Vite and backed by Google's Gemini API.
+[🎥 Watch the Demo Video](https://drive.google.com/file/d/1oOr55iEHuToAejbkZEhUgPWYz-OZOCBF/view?usp=sharing)
+
+An AI-powered study tool that transforms your notes into interactive flashcards and quizzes. Built with React + Vite and backed by Google's Gemini API, demonstrating robust error handling, generative AI integration, and clean UI/UX design.
 
 ![React](https://img.shields.io/badge/React-19-blue?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8-purple?logo=vite)
@@ -9,41 +11,37 @@ An AI-powered study tool that transforms your notes into interactive flashcards 
 ## 📋 Table of Contents
 
 - [✨ Features](#-features)
-- [🚀 Quick Start](#-quick-start)
+- [🛠️ Tech Stack](#️-tech-stack)
 - [🏗️ Architecture](#️-architecture)
 - [📁 Project Structure](#-project-structure)
-- [🧪 Testing Chaos Mode](#-testing-chaos-mode)
+- [🚀 Quick Start](#-quick-start)
+- [💡 Usage](#-usage)
+- [🧠 Key Design Decisions](#-key-design-decisions)
 - [⌨️ Keyboard Shortcuts](#️-keyboard-shortcuts)
 - [📜 Scripts](#-scripts)
 - [📄 License](#-license)
 
 ## ✨ Features
 
-- **🎴 Smart Flashcards** — AI-generated Q&A cards with 3D flip animation, optional images, and confidence tracking (Got it / Need Review)
-- **📝 Multi-Format Quizzes** — Multiple-choice and True/False questions with instant feedback and explanations
-- **🌪️ Chaos Mode** — Intentionally mangles AI responses to demonstrate that the UI never crashes on bad data
-- **📚 Study History** — Auto-saves every session to localStorage; reload past materials with one click
-- **📊 Stats Dashboard** — Track sessions, cards generated, and study activity over time
-- **📥 Markdown Export** — Download flashcards and quizzes as a clean `.md` file, including confidence ratings
-- **⌨️ Keyboard Shortcuts** — `Ctrl+Enter` to generate, `Ctrl+E` to export, arrow keys to navigate
-- **🌙 Dark Mode** — Full dark theme with smooth transitions
+| Feature | Description |
+|---------|-------------|
+| **Smart Flashcards** | AI-generated Q&A cards with 3D flip animation, optional images, and confidence tracking. |
+| **Multi-Format Quizzes** | Multiple-choice and True/False questions with instant feedback and explanations. |
+| **Chaos Mode** | Intentionally mangles AI responses to demonstrate that the UI never crashes on bad data. |
+| **Study History** | Auto-saves every session to localStorage; reload past materials with one click. |
+| **Stats Dashboard** | Track sessions, cards generated, and study activity over time. |
+| **Markdown Export** | Download flashcards and quizzes as a clean `.md` file, including confidence ratings. |
+| **Dark Mode** | Full dark theme with smooth transitions. |
 
-## 🚀 Quick Start
+## 🛠️ Tech Stack
 
-```bash
-# Install dependencies
-npm install
-
-# Add your Gemini API key
-echo 'GEMINI_API_KEY="your-key-here"' > .env
-
-# Start both frontend + backend
-npm start
-```
-
-Open [http://localhost:5173](http://localhost:5173) and paste your notes!
-
-> **No API key?** The app falls back to a deterministic on-device generator, so you can still test every feature.
+| Component | Technology |
+|-----------|------------|
+| **Frontend Framework** | React 19 + Vite |
+| **Styling** | Tailwind CSS + Framer Motion |
+| **Backend Proxy** | Node.js + Express |
+| **AI Integration** | Google Gemini API (`gemini-2.5-flash`) |
+| **Icons** | Lucide React |
 
 ## 🏗️ Architecture
 
@@ -79,21 +77,15 @@ graph TD
     Endpoint -- "4. Responds to Client" --> Validate
 ```
 
-### Three Layers of Defense Against Bad AI Output
-
-1. **Schema Enforcement** — Gemini's `responseSchema` forces structured JSON at the model level
-2. **Validation & Coercion** — `validateAndCoerce()` drops invalid items, preserves valid ones, and surfaces rejection notes
-3. **Deterministic Fallback** — `localGenerate()` produces usable study materials from raw text if the API fails entirely
-
 ## 📁 Project Structure
 
-```
+```text
 ├── server.js                    # Express proxy + Gemini SDK + Chaos Mode
 ├── .env                         # GEMINI_API_KEY (gitignored)
 ├── vite.config.js               # Dev server + /api proxy
 ├── src/
 │   ├── App.jsx                  # Main app, reducer, keyboard shortcuts
-│   ├── index.css                # Full design system (glassmorphism, 3D flip, animations)
+│   ├── index.css                # Full design system (glassmorphism, 3D flip)
 │   ├── utils/
 │   │   └── ai.js                # API calls, validation, fallback generator
 │   └── components/
@@ -105,14 +97,49 @@ graph TD
 │       └── Dashboard.jsx        # Stats + activity chart
 ```
 
-## 🧪 Testing Chaos Mode
+## 🚀 Quick Start
 
-Check the **Chaos Mode** checkbox and hit Generate. The backend will randomly:
-- Return a `503 Gateway Timeout` (non-JSON)
-- Return valid JSON with the completely wrong schema
-- Return mostly valid data with random missing fields
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-The UI catches all of these, drops invalid items, preserves what it can, and shows a friendly rejection note — **it never crashes**.
+### Installation & Run
+
+```bash
+# Install dependencies
+npm install
+
+# Add your Gemini API key
+echo 'GEMINI_API_KEY="your-key-here"' > .env
+
+# Start both frontend + backend concurrently
+npm start
+```
+
+Open [https://study-assistant-theta.vercel.app/](https://study-assistant-theta.vercel.app/) in your browser.
+
+> **No API key?** The app falls back to a deterministic on-device generator, so you can still test every feature without setting up Gemini.
+
+## 💡 Usage
+
+1. **Input Notes:** Paste your study material into the main text area.
+2. **Select Mode:** Choose between Flashcards, Quiz, or Both.
+3. **Generate:** Hit `Ctrl + Enter` to start generation. 
+4. **Study:** Flip through flashcards and mark your confidence, or take the quiz to test your knowledge.
+5. **Export:** Click the export button to save your study materials locally as Markdown.
+
+## 🧠 Key Design Decisions
+
+### Three Layers of Defense Against Bad AI Output
+1. **Schema Enforcement** — Gemini's `responseSchema` forces structured JSON at the model level.
+2. **Validation & Coercion** — `validateAndCoerce()` drops invalid items, preserves valid ones, and surfaces rejection notes without breaking the UI.
+3. **Deterministic Fallback** — `localGenerate()` produces usable study materials from raw text if the API fails entirely or no API key is provided.
+
+### Proxy Architecture
+The Express server acts as a middleman to securely inject the `GEMINI_API_KEY`, ensuring sensitive credentials are never exposed to the client browser.
+
+### Resilience via Chaos Mode
+Built-in `Chaos Mode` allows developers to test the application against malformed responses (503s, missing fields, wrong schemas). The UI is guaranteed to catch all errors and gracefully degrade rather than crashing.
 
 ## ⌨️ Keyboard Shortcuts
 
@@ -131,7 +158,8 @@ The UI catches all of these, drops invalid items, preserves what it can, and sho
 | `npm run dev` | Start Vite dev server only |
 | `npm run server` | Start Express proxy only |
 | `npm run build` | Production build |
+| `npm run lint` | Run code linter (oxlint) |
 
+## 📄 License
 
-
-
+MIT
