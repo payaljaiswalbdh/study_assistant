@@ -8,14 +8,14 @@ An AI-powered study tool that transforms your notes into interactive flashcards 
 
 ## ✨ Features
 
-- **🎴 Smart Flashcards** — AI-generated Q&A cards with 3D flip animation, optional images, and confidence tracking (Got it / Need Review)
-- **📝 Multi-Format Quizzes** — Multiple-choice and True/False questions with instant feedback and explanations
-- **🌪️ Chaos Mode** — Intentionally mangles AI responses to demonstrate that the UI never crashes on bad data
-- **📚 Study History** — Auto-saves every session to localStorage; reload past materials with one click
-- **📊 Stats Dashboard** — Track sessions, cards generated, and study activity over time
-- **📥 Markdown Export** — Download flashcards and quizzes as a clean `.md` file, including confidence ratings
-- **⌨️ Keyboard Shortcuts** — `Ctrl+Enter` to generate, `Ctrl+E` to export, arrow keys to navigate
-- **🌙 Dark Mode** — Full dark theme with smooth transitions
+- ** Smart Flashcards** — AI-generated Q&A cards with 3D flip animation, optional images, and confidence tracking (Got it / Need Review)
+- ** Multi-Format Quizzes** — Multiple-choice and True/False questions with instant feedback and explanations
+- ** Chaos Mode** — Intentionally mangles AI responses to demonstrate that the UI never crashes on bad data
+- ** Study History** — Auto-saves every session to localStorage; reload past materials with one click
+- ** Stats Dashboard** — Track sessions, cards generated, and study activity over time
+- ** Markdown Export** — Download flashcards and quizzes as a clean `.md` file, including confidence ratings
+- ** Keyboard Shortcuts** — `Ctrl+Enter` to generate, `Ctrl+E` to export, arrow keys to navigate
+- ** Dark Mode** — Full dark theme with smooth transitions
 
 ## 🚀 Quick Start
 
@@ -30,7 +30,7 @@ echo 'GEMINI_API_KEY="your-key-here"' > .env
 npm start
 ```
 
-Open [http://localhost:5173](http://localhost:5173) and paste your notes!
+Open [https://study-assistant-theta.vercel.app/](https://study-assistant-theta.vercel.app/) and paste your notes!
 
 > **No API key?** The app falls back to a deterministic on-device generator, so you can still test every feature.
 
