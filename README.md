@@ -100,6 +100,4 @@ The UI catches all of these, drops invalid items, preserves what it can, and sho
 | `npm run server` | Start Express proxy only |
 | `npm run build` | Production build |
 
-## 📄 License
 
-MIT
