@@ -8,14 +8,14 @@ An AI-powered study tool that transforms your notes into interactive flashcards 
 
 ## ✨ Features
 
-- ** Smart Flashcards** — AI-generated Q&A cards with 3D flip animation, optional images, and confidence tracking (Got it / Need Review)
-- ** Multi-Format Quizzes** — Multiple-choice and True/False questions with instant feedback and explanations
-- ** Chaos Mode** — Intentionally mangles AI responses to demonstrate that the UI never crashes on bad data
-- ** Study History** — Auto-saves every session to localStorage; reload past materials with one click
-- ** Stats Dashboard** — Track sessions, cards generated, and study activity over time
-- ** Markdown Export** — Download flashcards and quizzes as a clean `.md` file, including confidence ratings
-- ** Keyboard Shortcuts** — `Ctrl+Enter` to generate, `Ctrl+E` to export, arrow keys to navigate
-- ** Dark Mode** — Full dark theme with smooth transitions
+- **  Smart Flashcards** — AI-generated Q&A cards with 3D flip animation, optional images, and confidence tracking (Got it / Need Review)
+- **  Multi-Format Quizzes** — Multiple-choice and True/False questions with instant feedback and explanations
+- **  Chaos Mode** — Intentionally mangles AI responses to demonstrate that the UI never crashes on bad data
+- **  Study History** — Auto-saves every session to localStorage; reload past materials with one click
+- **  Stats Dashboard** — Track sessions, cards generated, and study activity over time
+- **  Markdown Export** — Download flashcards and quizzes as a clean `.md` file, including confidence ratings
+- **  Keyboard Shortcuts** — `Ctrl+Enter` to generate, `Ctrl+E` to export, arrow keys to navigate
+- **  Dark Mode** — Full dark theme with smooth transitions
 
 ## 🚀 Quick Start
 
