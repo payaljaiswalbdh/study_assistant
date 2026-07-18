@@ -1,6 +1,8 @@
 # 🎓 Study Assistant
 
-[🎥 Watch the Demo Video](https://drive.google.com/file/d/1oOr55iEHuToAejbkZEhUgPWYz-OZOCBF/view?usp=sharing)
+[🎥 Watch the Demo Video](https://drive.google.com/file/d/1bxxTIS13AWW-yaTHwz378U3hifOW0I_k/view?usp=sharing)
+
+Open [Live Demo](https://study-assistant-theta.vercel.app/) in your browser.
 
 An AI-powered study tool that transforms your notes into interactive flashcards and quizzes. Built with React + Vite and backed by Google's Gemini API, demonstrating robust error handling, generative AI integration, and clean UI/UX design.
 
@@ -116,7 +118,6 @@ echo 'GEMINI_API_KEY="your-key-here"' > .env
 npm start
 ```
 
-Open [https://study-assistant-theta.vercel.app/](https://study-assistant-theta.vercel.app/) in your browser.
 
 > **No API key?** The app falls back to a deterministic on-device generator, so you can still test every feature without setting up Gemini.
 
